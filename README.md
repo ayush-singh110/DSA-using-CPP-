@@ -1,5 +1,5 @@
-. Hi there! I m Ayush Singh,
-an enthusiast in ML and DSA.
+. Hi there! I m Ayush Singh 
+an enthusiast in ML and DSA. "\n"
 . Passionate about Open Source projects and collaborative learning
 
 
