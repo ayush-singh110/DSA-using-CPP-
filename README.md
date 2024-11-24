@@ -9,7 +9,7 @@ Languages:
 ![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
 Tools and Technologies:
-![MySQL](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 
 
