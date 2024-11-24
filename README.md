@@ -13,6 +13,12 @@ Languages: <br>
 Libraries: <br>
 ![Pandas](https://img.shields.io/badge/Pandas-3776AB?style=for-the-badge&logo=pandas&logoColor=white)
 
+![Numpy](https://img.shields.io/badge/Numpy-3776AB?style=for-the-badge&logo=numpy&logoColor=white)
+
+![MatPlotLib](https://img.shields.io/badge/MatPlotLib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white)
+
+
+
 Tools and Technologies: <br>
 ![MySQL](https://img.shields.io/badge/MySQL-3776AB?style=for-the-badge&logo=mysql&logoColor=white)
 
