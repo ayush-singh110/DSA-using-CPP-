@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack <int> s;
+        for (int i=0;i<tokens.size();i++){
+            if (tokens[i]=="+"){
+                int j=s.top();
+                s.pop();
+                int k=s.top();
+                s.pop();
+                s.push(j+k);
+            }
+            else if (tokens[i]=="*"){
+                int j=s.top();
+                s.pop();
+                int k=s.top();
+                s.pop();
+                s.push(j*k);
+            }
+            else if (tokens[i]=="-"){
+                int j=s.top();
+                s.pop();
+                int k=s.top();
+                s.pop();
+                s.push(k-j);
+            }
+            else if (tokens[i]=="/"){
+                int j=s.top();
+                s.pop();
+                int k=s.top();
+                s.pop();
+                s.push(k/j);
+            }
+            else {
+                s.push(stoi(tokens[i]));
+            }
+        }
+        return s.top();
+    }
+};
