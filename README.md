@@ -1,5 +1,7 @@
-Hi there! I m Ayush Singh,
+. Hi there! I m Ayush Singh,
 an enthusiast in ML and DSA.
+. Passionate about Open Source projects and collaborative learning
+
 
 Languages:
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
