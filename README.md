@@ -15,7 +15,7 @@ Libraries: <br>
 
 ![Numpy](https://img.shields.io/badge/Numpy-3776AB?style=for-the-badge&logo=numpy&logoColor=white)
 
-![MatPlotLib](https://img.shields.io/badge/MatPlotLib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white)
 
 
 
