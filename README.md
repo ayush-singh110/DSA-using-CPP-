@@ -10,6 +10,9 @@ Languages: <br>
 
 ![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
+Libraries: <br>
+![Pandas](https://img.shields.io/badge/Pandas-3776AB?style=for-the-badge&logo=pandas&logoColor=white)
+
 Tools and Technologies: <br>
 ![MySQL](https://img.shields.io/badge/MySQL-3776AB?style=for-the-badge&logo=mysql&logoColor=white)
 
