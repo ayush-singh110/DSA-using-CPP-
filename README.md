@@ -2,14 +2,14 @@ Hi there! I m Ayush Singh,
 an enthusiast in ML and DSA.
 
 Languages:
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=blue)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=blue)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
-![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=blue)
+![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
 Tools and Technologies:
-![MySQL](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=blue)
+![MySQL](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 
 
