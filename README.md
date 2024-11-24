@@ -1,16 +1,16 @@
 . Hi there! I m Ayush Singh 
-an enthusiast in ML and DSA. "\n"
-. Passionate about Open Source projects and collaborative learning
+an enthusiast in ML and DSA. <br>
+. Passionate about Open Source projects and collaborative learning <br>
 
 
-Languages:
+Languages: <br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
 ![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
-Tools and Technologies:
+Tools and Technologies: <br>
 ![MySQL](https://img.shields.io/badge/MySQL-3776AB?style=for-the-badge&logo=mysql&logoColor=white)
 
 
