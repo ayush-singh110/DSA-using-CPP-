@@ -8,7 +8,7 @@ Languages: <br>
 
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
-![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![Java](https://img.shields.io/badge/Java-00599C?style=for-the-badge&logo=java&logoColor=white)
 
 Libraries: <br>
 ![Pandas](https://img.shields.io/badge/Pandas-3776AB?style=for-the-badge&logo=pandas&logoColor=white)
@@ -16,6 +16,7 @@ Libraries: <br>
 ![Numpy](https://img.shields.io/badge/Numpy-3776AB?style=for-the-badge&logo=numpy&logoColor=white)
 
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=seaborn&logoColor=white)
 
 
 
