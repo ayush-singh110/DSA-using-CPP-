@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int findFinalValue(vector<int>& nums, int original) {
+        int n=1;
+        auto it=find(nums.begin(),nums.end(),original);
+        while (it!=nums.end()){
+            int i=distance(nums.begin(),it);
+            n=nums[i]*2;
+            it=find(nums.begin(),nums.end(),n);
+        }
+        if (n==1){
+            return original;
+        }
+        return n;
+    }
+};
