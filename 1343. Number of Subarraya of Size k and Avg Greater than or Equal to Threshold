@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int wsum=0;
+        int count=0;
+        for (int i=0;i<k;i++){
+            wsum=wsum+arr[i];
+        }
+        if (wsum>=threshold*k){
+            count++;
+            cout<<count<<" ";
+        }
+        for (int i=k;i<arr.size();i++){
+            wsum=wsum+arr[i]-arr[i-k];
+            if (wsum>=threshold*k){
+                count++;
+                cout<<count<<" ";
+            }
+        }
+        return count;
+        
+    }
+};
