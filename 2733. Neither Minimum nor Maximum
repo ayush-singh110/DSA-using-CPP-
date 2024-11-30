@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findNonMinOrMax(vector<int>& nums) {
+        int m=nums[0];
+        for (auto it:nums){
+            if (it>m){
+                m=it;
+            }
+        }
+        int mi=nums[0];
+        for (auto it:nums){
+            if (it<mi){
+                mi=it;
+            }
+        }
+        for (auto it:nums){
+            if ((it!=mi) && (it!=m)){
+                return it;
+            }
+        }
+        cout<<mi;
+        cout<<m;
+        return -1;
+        
+    }
+};
