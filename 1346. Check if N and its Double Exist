@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        bool result=false;
+        for (int i=0;i<arr.size();i++){
+            int n=arr[i]*2;
+            auto it1=find(arr.begin(),arr.end(),n);
+            int index=distance(arr.begin(),it1);
+            if ((it1!=arr.end()) && (index!=i)){
+                result=true;
+                break;
+            }
+        }
+        return result;
+        
+    }
+};
