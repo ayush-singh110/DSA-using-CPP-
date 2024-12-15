@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        vector <char> r1;
+        vector <char> r2;
+        int count1=0;
+        int count2=0;
+        int n=s.size()/2;
+        for (int i=0;i<n;i++){
+            r1.push_back(s[i]);
+        }
+        for (int i=n;i<s.size();i++){
+            r2.push_back(s[i]);
+        }
+        for (auto it:r1){
+            if (it=='a' or it=='e' or it=='i' or it=='o' or it=='u' or it=='A' or it=='E' or it=='I' or it=='O' or it=='U'){
+                count1++;
+            }
+        }
+        for (auto it:r2){
+            if (it=='a' or it=='e' or it=='i' or it=='o' or it=='u' or it=='A' or it=='E' or it=='I' or it=='O' or it=='U'){
+                count2++;
+            }
+        }
+        return count1==count2;
+        
+    }
+};
