@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
+        vector <string> k={"type","color","name"};
+        int key;
+        int count=0;
+        for (int i=0;i<k.size();i++){
+            if (ruleKey==k[i]){
+                key=i;
+            }
+        }
+        for (int i=0;i<items.size();i++){
+            for (int j=0;j<items[i].size();j++){
+                if (items[i][j]==ruleValue && j==key){
+                    count++;
+                }
+            }
+        }
+        return count;
+        
+    }
+};
