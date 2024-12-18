@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int countSegments(string s) {
+        vector <string> r;
+        string word;
+        stringstream ss(s);
+        while (ss>>word){
+            r.push_back(word);
+        }
+        return r.size();
+        
+    }
+};
