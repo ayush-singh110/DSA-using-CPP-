@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool areNumbersAscending(string s) {
+        int l=0;
+        string word;
+        stringstream ss(s);
+        while (ss>>word){
+            if (isdigit(word[0])){
+                if (stoi(word)<=l){
+                    return false;
+                }
+                l=stoi(word);
+            }
+        }
+        return true;
+    }
+};
