@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<string> findRelativeRanks(vector<int>& score) {
+        priority_queue<int> p;
+        unordered_map<int,string> m;
+        vector <string> r;
+        int count=1;
+        for (auto it:score){
+            p.push(it);
+        }
+        while (p.size()>0){
+            int x=p.top();
+            cout<<x<<" ";
+            p.pop();
+            if (count==1){
+                m[x]="Gold Medal";
+                count++;
+                continue;
+            }
+            else if(count==2){
+                m[x]="Silver Medal";
+                count++;
+                continue;
+            }
+            else if (count==3){
+                m[x]="Bronze Medal";
+                count++;
+                continue;
+            }
+            else {
+                m[x]=std::to_string(count);
+                count++;
+                continue;
+            }
+        }
+        for (int i=0;i<score.size();i++){
+            r.push_back(m[score[i]]);
+        }
+        return r;
+    }
+};
