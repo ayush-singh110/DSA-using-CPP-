@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(),intervals.end(),[](const vector<int> &a,const vector<int> &b){return a[0]<b[0];});
+        vector <vector<int>> r;
+        int j=0;
+        r.push_back(intervals[0]);
+        for (int i=1;i<intervals.size();i++){
+            if (r[j][0]<=intervals[i][1] && r[j][1]>=intervals[i][0]){
+                r[j][1]=max(r[j][1],intervals[i][1]);
+            }
+            else {
+                r.push_back(intervals[i]);
+                j++;
+            }
+        }
+        return r;
+        
+    }
+};
