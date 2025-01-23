@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        unordered_map<int,int> m;
+        for (auto it:nums){
+            m[it]++;
+        }
+        set<int> s(nums.begin(),nums.end());
+        vector <int> r;
+        for (auto it:s){
+            int count=0;
+            if (m.find(it+1)!=m.end()){
+                count=m[it]+m[it+1];
+                r.push_back(count);
+                continue;
+            }
+            else if (m.find(it-1)!=m.end()){
+                count=m[it]+m[it-1];
+                r.push_back(count);
+                continue;
+            }
+            else{
+                r.push_back(0);
+            }
+        }
+        sort(r.begin(),r.end());
+        return r[r.size()-1];
+    }
+};
