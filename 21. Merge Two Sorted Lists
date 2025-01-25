@@ -1,0 +1,39 @@
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        if (list1==NULL && list2==NULL){
+            return NULL;
+        }
+        else if(list1==NULL && list2!=NULL){
+            return list2;
+        }
+        else if(list2==NULL && list1!=NULL){
+            return list1;
+        }
+        vector <int> r;
+        ListNode *t1=list1;
+        while (t1!=NULL){
+            r.push_back(t1->val);
+            t1=t1->next;
+        }
+        ListNode *t2=list2;
+        while (t2!=NULL){
+            r.push_back(t2->val);
+            t2=t2->next;
+        }
+        sort(r.begin(),r.end());
+        ListNode *dummy=new ListNode();
+        ListNode *temp=dummy;
+        int i=0;
+        int j=r.size();
+        while (i<j){
+            ListNode *newn=new ListNode(r[i]);
+            temp->next=newn;
+            temp=newn;
+            i++;
+        }
+        return dummy->next;
+        
+        
+    }
+};
