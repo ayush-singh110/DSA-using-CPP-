@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<string> summaryRanges(vector<int>& nums) {
+        vector <pair <int,int>> r;
+        vector <string> result;
+        int j=0;
+        int i=1;
+        if (nums.size()==0){
+            return {};
+        }
+        for (i=1;i<=nums.size()-1;i++){
+            if ((nums[i]-1!=nums[i-1]) && ((i-j)==1)){
+                r.push_back({nums[i-1],nums[i-1]});
+                j=i;
+            }
+            else if ((nums[i]-1!=nums[i-1]) && ((i-j)!=1)){
+                r.push_back({nums[j],nums[i-1]});
+                j=i;
+            }
+        }
+        r.push_back({nums[j],nums[i-1]});
+        for (auto it:r){
+            cout<<it.first<<it.second<<" ";
+        }
+        for (auto it:r){
+            if (it.first==it.second){
+                result.push_back(to_string(it.first));
+            }
+            else if(it.first!=it.second){
+                result.push_back((to_string(it.first))+"->"+(to_string(it.second)));
+            }
+        }
+        return result;
+        
+    }
+};
