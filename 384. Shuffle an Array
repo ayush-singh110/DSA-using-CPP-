@@ -1,0 +1,21 @@
+class Solution {
+    private:
+        vector <int> r;
+        vector <int> a;
+public:
+    Solution(vector<int>& nums) {
+        r=nums;
+        a=nums;
+        
+    }
+    
+    vector<int> reset() {
+        r=a;
+        return r;
+    }
+    
+    vector<int> shuffle() {
+        random_shuffle(r.begin(),r.end());
+        return r;
+    }
+};
