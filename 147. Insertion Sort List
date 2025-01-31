@@ -1,0 +1,31 @@
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if (head->next==NULL){
+            return head;
+        }
+        ListNode *t=head;
+        vector <int> r;
+        while (t!=NULL){
+            r.push_back(t->val);
+            t=t->next;
+        }
+        for (int i=1;i<r.size();i++){
+            int j=i;
+            int v=r[i];
+            while (j>=1 && r[j-1]>v){
+                r[j]=r[j-1];
+                j--;
+            }
+            r[j]=v;
+        }
+        ListNode *dummy=new ListNode;
+        ListNode *temp=dummy;
+        for (int i=0;i<r.size();i++){
+            ListNode *newn=new ListNode(r[i]);
+            temp->next=newn;
+            temp=temp->next;
+        }
+        return dummy->next;
+    }
+};
