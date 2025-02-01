@@ -1,0 +1,32 @@
+class Solution {
+public:
+    ListNode* reverse(ListNode* node){
+        ListNode* cur = node, *prev = NULL, *nxt = NULL;
+
+        while(cur != NULL){
+            nxt = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nxt;
+        } 
+
+        return prev;
+    }
+    ListNode* removeNodes(ListNode* head) {
+
+        ListNode *nhead = reverse(head);
+
+        ListNode *left = nhead, *right = nhead;
+        while(left != NULL && left->next != NULL){
+            do{
+                right = right->next;
+            }while(right != NULL && left->val > right->val);
+            left->next = right;
+            left = right;
+        }
+
+        head = reverse(nhead);
+
+        return head;
+    }
+};
