@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        vector <int> r1;
+        vector <int> r2;
+        int ind=0;
+        int count=0;
+        for (int i=0;i<nums.size()-1;i++){
+            if (nums[i]>nums[i+1]){
+                ind=i+1;
+                count++;
+            }
+        }
+        if (count>1){
+            return false;
+        }
+        for (int i=0;i<ind;i++){
+            r1.push_back(nums[i]);
+        }
+        for (int i=ind;i<nums.size();i++){
+            r2.push_back(nums[i]);
+        }
+        int j=0;
+        for (int i=0;i<r2.size();i++){
+            nums[j++]=r2[i];
+        }
+        for (int i=0;i<r1.size();i++){
+            nums[j++]=r1[i];
+        }
+        if (ind==0){
+            return true;
+        }
+        for (int i=0;i<nums.size()-1;i++){
+            if (nums[i]>nums[i+1]){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+};
