@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        if (head->next==NULL){
+            return {0};
+        }
+        vector <int> r;
+        ListNode *temp=head;
+        while (temp!=NULL){
+            r.push_back(temp->val);
+            temp=temp->next;
+        }
+        unordered_map <int,int> m;
+        stack <int> s;
+        for (int i=r.size()-1;i>=0;i--){
+            while (!s.empty() && r[i]>=s.top()){
+                s.pop();
+            }
+            if (!s.empty()){
+                m[i]=s.top();
+            }
+            if (s.empty()){
+                m[i]=0;
+            }
+            s.push(r[i]);
+
+        }
+        vector <int> result;
+        for (int i=0;i<r.size();i++){
+            result.push_back(m[i]);
+        }
+        return result;
+        
+    }
+};
