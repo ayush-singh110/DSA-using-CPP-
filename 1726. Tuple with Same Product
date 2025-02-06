@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int tupleSameProduct(vector<int>& nums) {
+        unordered_map <int,int> m;
+        int result=0;
+        for (int i=0;i<nums.size()-1;i++){
+            for (int j=i+1;j<nums.size();j++){
+                if (m.find(nums[i]*nums[j])!=m.end()){
+                    result=result+(m[nums[i]*nums[j]]*8);
+                }
+                m[nums[i]*nums[j]]++;
+            }
+        }
+        return result;
+       
+
+        
+    }
+};
