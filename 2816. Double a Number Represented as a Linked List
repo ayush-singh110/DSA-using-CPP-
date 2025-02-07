@@ -1,0 +1,35 @@
+class Solution {
+public:
+    ListNode* doubleIt(ListNode* head) {
+        vector <int> r;
+        ListNode *temp=head;
+        while (temp!=NULL){
+            r.push_back(temp->val);
+            temp=temp->next;
+        }
+        vector <int> result;
+        int j=0;
+        for (int i=r.size()-1;i>=0;i--){
+            int n=(r[i]*2)+j;
+            int k=n%10;
+            result.push_back(k);
+            j=n/10;
+        }
+        if (j!=0){
+            result.push_back(j);
+        }
+        for (auto it:r){
+            cout<<it<<" ";
+        }
+        ListNode *dummy=new ListNode;
+        ListNode *t=dummy;
+        for (int i=result.size()-1;i>=0;i--){
+            ListNode *newn=new ListNode(result[i]);
+            t->next=newn;
+            t=newn;
+        }
+        return dummy->next;
+
+        
+    }
+};
