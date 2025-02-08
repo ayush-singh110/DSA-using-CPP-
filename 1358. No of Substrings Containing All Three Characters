@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        unordered_map <char,int> m;
+        int l=0;
+        int r=0;
+        int n=s.size()-1;
+        int count=0;
+        while (r<=n){
+            m[s[r]]++;
+            while (m['a'] && m['b'] && m['c']){
+                count=count+1+(n-r);
+                m[s[l]]--;
+                l++;
+            }
+            r++;
+        }
+        return count;
+        
+    }
+};
