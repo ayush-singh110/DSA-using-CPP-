@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countCharacters(vector<string>& words, string chars) {
+        unordered_map<char,int> m;
+        int c=0;
+        for (auto it:chars){
+            m[it]++;
+        }
+        for (int i=0;i<words.size();i++){
+            int s=0;
+            set<char>j(words[i].begin(),words[i].end());
+            unordered_map<char,int> r;
+            for (auto it:words[i]){
+                r[it]++;
+            }
+            for (auto it:j){
+                if (m[it]<r[it]){
+                    s=1;
+                    break;
+                }
+            }
+            if (s==0){
+                c=c+words[i].size();
+            }
+        }
+        return c;
+        
+    }
+};
