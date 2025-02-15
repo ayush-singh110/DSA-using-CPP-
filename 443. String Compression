@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        vector <pair<char,int>> r;
+        int count=1;
+        for (int i=1;i<chars.size();i++){
+            if (chars[i-1]==chars[i]){
+                count++;
+            }
+            if (chars[i-1]!=chars[i]){
+                r.push_back({chars[i-1],count});
+                count=1;
+            }
+        }
+        r.push_back({chars[chars.size()-1],count});
+        chars.clear();
+        for (auto it:r){
+            cout<<it.first<<it.second<<" ";
+        }
+        for (auto it:r){
+            if (it.second==1){
+                chars.push_back(it.first);
+            }
+            if (it.second>1){
+                chars.push_back(it.first);
+                string a=to_string(it.second);
+                for (int i=0;i<a.size();i++){
+                    chars.push_back(a[i]);
+                }
+            }
+        }
+        return chars.size();
+        
+    }
+};
