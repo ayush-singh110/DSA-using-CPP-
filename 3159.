@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> occurrencesOfElement(vector<int>& nums, vector<int>& queries, int x) {
+        unordered_map <int,int> m;
+        for (auto it:nums){
+            if (it==x){
+                m[it]++;
+            }
+        }
+        vector <pair<int,int>> r;
+        for (int i=0;i<nums.size();i++){
+            if (nums[i]==x){
+                r.push_back({nums[i],i});
+            }
+        }
+        vector <int> result;
+        for (int i=0;i<queries.size();i++){
+            if (m[x]>=queries[i]){
+                result.push_back(r[queries[i]-1].second);
+            }
+            else if (m[x]<queries[i]){
+                result.push_back(-1);
+            }
+        }
+        return result;
+        
+    }
+};
