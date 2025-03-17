@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        vector <char> r1={'q','w','e','r','t','y','u','i','o','p'};
+        vector <char> r2={'a','s','d','f','g','h','j','k','l'};
+        vector <char> r3={'z','x','c','v','b','n','m'};
+        vector <string> r;
+        for (int i=0;i<words.size();i++){
+            int c=1;
+            for (int j=0;j<words[i].size()-1;j++){
+                auto it1=find(r1.begin(),r1.end(),tolower(words[i][j]));
+                auto it2=find(r2.begin(),r2.end(),tolower(words[i][j]));
+                auto it3=find(r3.begin(),r3.end(),tolower(words[i][j]));
+                auto it11=find(r1.begin(),r1.end(),tolower(words[i][j+1]));
+                auto it21=find(r2.begin(),r2.end(),tolower(words[i][j+1]));
+                auto it31=find(r3.begin(),r3.end(),tolower(words[i][j+1]));
+                if (it1!=r1.end() && it11==r1.end()){
+                    c=0;
+                    break;
+                }
+                else if (it2!=r2.end() && it21==r2.end()){
+                    c=0;
+                    break;
+                }
+                else if (it3!=r3.end() && it31==r3.end()){
+                    c=0;
+                    break;
+                }
+            }
+            if (c==1){
+                r.push_back(words[i]);
+            }
+        }
+        return r;
+        
+    }
+};
