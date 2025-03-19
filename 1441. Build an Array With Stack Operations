@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+        vector <string> r;
+        for (int i=1;i<=n;i++){
+            r.push_back("Push");
+            auto it=find(target.begin(),target.end(),i);
+            if (it==target.end()){
+                r.push_back("Pop");
+            }
+            if (it!=target.end()){
+                int d=distance(target.begin(),it);
+                if (d==target.size()-1){
+                    break;
+                }
+            }
+        }
+        return r;
+        
+    }
+};
