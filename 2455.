@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int averageValue(vector<int>& nums) {
+        int a=0;
+        int s=0;
+        for (auto it:nums){
+            if (it%2==0 && it%3==0){
+                s=s+it;
+                a++;
+            }
+        }
+        if (a==0){
+            return 0;
+        }
+        return s/a;
+
+    }
+};
