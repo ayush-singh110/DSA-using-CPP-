@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int numSub(string s) {
+        int k=0;
+        for (int j=0;j<s.size();j++){
+            if (s[j]=='1'){
+                k=j;
+                break;
+            }
+        }
+        long long c=0;
+        long long r=0;
+        for (int i=k;i<s.size();i++){
+            if (s[i]=='1'){
+                c++;
+            }
+            if (s[i]=='0'){
+                r=r+(c*(c+1)/2);
+                c=0;
+            }
+        }
+        if (c!=0){
+            r=r+(c*(c+1)/2);
+        }
+        return r%1000000007;
+    }
+};
