@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string truncateSentence(string s, int k) {
+        string w;
+        stringstream ss(s);
+        vector <string> r;
+        while (ss>>w){
+            r.push_back(w);
+        }
+        string result="";
+        for (int i=0;i<k;i++){
+            result=result+r[i];
+            if (i!=k-1){
+                result=result+" ";
+            }
+        }
+        return result;
+    }
+};
