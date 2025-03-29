@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        int c=0;
+        ListNode *size=head;
+        while (size!=NULL){
+            c++;
+            size=size->next;
+        }
+        int s=(c/2)-1;
+        ListNode *t1=head;
+        if (c==2){
+            return t1->val+t1->next->val;
+        }
+        ListNode *t2=NULL;
+        for (int i=0;i<=s;i++){
+            t2=t1;
+            t1=t1->next;
+        }
+        ListNode *p=t1,*q=t1;
+        if (t1!=NULL){
+            p=t1;
+            t1=t1->next;
+            q=t1;
+            p->next=NULL;
+        }
+        while (t1!=NULL){
+            t1=t1->next;
+            q->next=p;
+            p=q;
+            q=t1;
+        }
+        t2->next=p;
+        ListNode *temp=head;
+        int result=-1;
+        for (int i=0;i<=s;i++){
+            result=max(result,temp->val+p->val);
+            temp=temp->next;
+            p=p->next;
+        }
+        return result;
+    }
+};
