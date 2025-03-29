@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool closeStrings(string word1, string word2) {
+        unordered_map<char,int> m1,m2;
+        set <char> s1,s2;
+        for (auto it:word1){
+            m1[it]++;
+            s1.insert(it);
+        }
+        for (auto it:word2){
+            m2[it]++;
+            s2.insert(it);
+        }
+        if (s1!=s2){
+            return false;
+        }
+        vector <int> r1,r2;
+        for (auto it:m1){
+            r1.push_back(it.second);
+        }
+        for (auto it:m2){
+            r2.push_back(it.second);
+        }
+        sort(r1.begin(),r1.end());
+        sort(r2.begin(),r2.end());
+        return r1==r2;
+    }
+};
