@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        queue<TreeNode*> cp;
+        queue<TreeNode*> cq;
+        cp.push(p);
+        cq.push(q);
+        while (!(cp.empty()) && !(cq.empty())){
+            TreeNode *n1=cp.front();
+            cp.pop();
+            TreeNode *n2=cq.front();
+            cq.pop();
+            if (n1==NULL && n2==NULL){
+                continue;
+            }
+            else if (n1==NULL || n2==NULL || n1->val!=n2->val){
+                return false;
+            }
+            cp.push(n1->left);
+            cp.push(n1->right);
+            cq.push(n2->left);
+            cq.push(n2->right);
+        }
+        return cp.empty() && cq.empty();
+    }
+};
