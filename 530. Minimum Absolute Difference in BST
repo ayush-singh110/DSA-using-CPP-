@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int getMinimumDifference(TreeNode* root) {
+        vector <int> r;
+        queue<TreeNode*> c;
+        c.push(root);
+        while (!(c.empty())){
+            TreeNode *n1=c.front();
+            c.pop();
+            if (n1!=NULL){
+                r.push_back(n1->val);
+                c.push(n1->left);
+                c.push(n1->right);
+            }
+        }
+        if (r.empty()){
+            return 0;
+        }
+        sort(r.begin(),r.end());
+        if (r.size()==1){
+            return r[0];
+        }
+        int md=INT_MAX;
+        for (int i=0;i<r.size()-1;i++){
+            md=min(md,r[i+1]-r[i]);
+        }
+        return md;
+    }
+};
