@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int specialTriplets(vector<int>& nums) {
+        unordered_map <int,long long> m1;
+        for (auto it:nums){
+            m1[it]++;
+        }
+        long long count=0;
+        unordered_map <int,long long> m2;
+        for (int i=0;i<nums.size();i++){
+            m1[nums[i]]--;
+            count=count+(long long)(m1[nums[i]*2]*m2[nums[i]*2]);
+            m2[nums[i]]++;
+        }
+        return count%(int)(1e9+7);
+    }
+};
