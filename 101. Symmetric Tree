@@ -1,0 +1,48 @@
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (root==NULL){
+            return true;
+        }
+        if ((root->left==NULL and root->right!=NULL) || (root->left!=NULL and root->right==NULL)){
+            return false;
+        }
+        TreeNode *n1=root->left;
+        TreeNode *n2=root->right;
+        stack <TreeNode *> s1;
+        stack <TreeNode *> s2;
+        while (true){
+            if ((n1==NULL and n2!=NULL)||(n1!=NULL and n2==NULL)){
+                return false;
+            }
+            if (n1!=NULL and n2!=NULL){
+                s1.push(n1);
+                s2.push(n2);
+                n1=n1->left;
+                n2=n2->right;
+            }
+            else {
+                if (s1.empty() and s2.empty()){
+                    return true;
+                }
+                if ((!s1.empty() and s2.empty()) || (s1.empty() and !s2.empty())){
+                    return false;
+                }
+                n1=s1.top();
+                s1.pop();
+                n2=s2.top();
+                s2.pop();
+                if (n1->val!=n2->val){
+                    return false;
+                }
+                if ((n1->right!=NULL and n2->left==NULL)|| (n1->right==NULL and n2->left!=NULL)){
+                    return false;
+                }
+                n1=n1->right;
+                n2=n2->left;
+            }
+        }
+        return true;
+        
+    }
+};
