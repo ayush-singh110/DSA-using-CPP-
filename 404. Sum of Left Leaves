@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        if (root->left==NULL and root->right==NULL){
+            return 0;
+        }
+        stack <TreeNode *> s;
+        s.push(root);
+        int sum=0;
+        while (!(s.empty())){
+            TreeNode *n=s.top();
+            s.pop();
+            if (n->left!=NULL && n->left->left==NULL && n->left->right==NULL){
+                sum=sum+n->left->val;
+            }
+            if (n->left!=NULL){
+                s.push(n->left);
+            }
+            if (n->right!=NULL){
+                s.push(n->right);
+            }
+        }
+        return sum;
+        
+    }
+};
