@@ -1,0 +1,26 @@
+class Solution {
+private:
+    int height(TreeNode *node, bool &r){
+        if (node==NULL){
+            return 0;
+        }
+        int ft=height(node->left,r);
+        int rt=height(node->right,r);
+        int d=abs(ft-rt);
+        if (d>1){
+            r=false;
+            return 0;
+        }
+        if (r==false){
+            return 0;
+        }
+        return 1+max(ft,rt);
+
+    }
+public:
+    bool isBalanced(TreeNode* root) {
+        bool r=true;
+        height(root,r);
+        return r;
+    }
+};
