@@ -1,0 +1,35 @@
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if (root1==NULL && root2==NULL){
+            return NULL;
+        }
+        if (root1!=NULL && root2==NULL){
+            return root1;
+        }
+        if (root1==NULL && root2!=NULL){
+            return root2;
+        }
+        queue <pair<TreeNode *,TreeNode *>> q;
+        q.push({root1,root2});
+        while (!(q.empty())){
+            TreeNode *p1=q.front().first;
+            TreeNode *p2=q.front().second;
+            p1->val=p1->val+p2->val;
+            q.pop();
+            if (p1->left!=NULL && p2->left!=NULL){
+                q.push({p1->left,p2->left});
+            }
+            if (p1->left==NULL && p2->left!=NULL){
+                p1->left=p2->left;
+            }
+            if (p1->right!=NULL && p2->right!=NULL){
+                q.push({p1->right,p2->right});
+            }
+            if (p1->right==NULL && p2->right!=NULL){
+                p1->right=p2->right;
+            }
+        }
+        return root1;
+    }
+};
