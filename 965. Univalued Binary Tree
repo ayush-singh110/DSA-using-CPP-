@@ -1,0 +1,20 @@
+class Solution {
+private:
+    void inorder (TreeNode *root, unordered_set <int> &s){
+        if (root==NULL){
+            return;
+        }
+        inorder(root->left,s);
+        s.insert(root->val);
+        inorder(root->right,s);
+    }
+public:
+    bool isUnivalTree(TreeNode* root) {
+        unordered_set <int> s;
+        inorder(root,s);
+        if (s.size()==1){
+            return true;
+        }
+        return false;
+    }
+};
