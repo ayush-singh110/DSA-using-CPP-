@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (root==NULL){
+            return false;
+        }
+        stack <pair<TreeNode *,int>> s;
+        s.push({root,root->val});
+        while (!(s.empty())){
+            TreeNode *node=s.top().first;
+            int d=s.top().second;
+            s.pop();
+            if (node->left==NULL && node->right==NULL && d==targetSum){
+                return true;
+            }
+            if (node->left!=NULL){
+                s.push({node->left,d+node->left->val});
+            }
+            if (node->right!=NULL){
+                s.push({node->right,d+node->right->val});
+            }
+        }
+        return false;
+    }
+};
