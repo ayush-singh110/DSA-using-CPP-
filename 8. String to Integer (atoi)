@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int myAtoi(string s) {
+        s.erase(0,s.find_first_not_of(" \t\n\r"));
+        cout<<s<<endl;
+        string r="";
+        for (int i=0;i<s.size();i++){
+            if ((i==0 && s[i]=='-') || (i==0 && s[i]=='+')){
+                continue;
+            }
+            else if (isdigit(s[i])){
+                r=r+s[i];
+            }
+            else if (!(isdigit(s[i]))){
+                break;
+            }
+        }
+        cout<<r<<endl;
+        long long i=0;
+        for (auto it:r){
+            int digit=it-'0';
+            if (i>(LLONG_MAX-digit)/10){
+                i=(s[0]=='-')?INT_MIN:INT_MAX;
+                return i;
+            }
+            i=i*10+(it-'0');
+        }
+        if (s[0]=='-'){
+            i=-i;
+        }
+        if (i<INT_MIN){
+            i=INT_MIN;
+        }
+        if (i>INT_MAX){
+            i=INT_MAX;
+        }
+        return i;
+    }
+};
