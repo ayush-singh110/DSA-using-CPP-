@@ -1,0 +1,23 @@
+class Solution {
+private:
+    void help(vector <string> &r, int op, int cp, int n, string s){
+        if (op==n && cp==n){
+            r.push_back(s);
+            return ;
+        }
+        if (op<n){
+            help(r,op+1,cp,n,s+'(');
+        }
+        if (cp<op){
+            help(r,op,cp+1,n,s+')');
+        }
+    }
+public:
+    vector<string> generateParenthesis(int n) {
+        vector <string> r;
+        int op=0;
+        int cp=0;
+        help(r,op,cp,n,"");
+        return r;
+    }
+};
