@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<int> rotateElements(vector<int>& nums, int k) {
+        vector <int> r;
+        for (auto it:nums){
+            if (it>=0){
+                r.push_back(it);
+            }
+        }
+        if (r.size()==1){
+            return nums;
+        }
+        if (r.empty()){
+            return nums;
+        }
+        k=k%r.size();
+        vector <int> f;
+        for (int i=0;i<k;i++){
+            f.push_back(r[i]);
+        }
+        vector <int> b;
+        for (int i=k;i<r.size();i++){
+            b.push_back(r[i]);
+        }
+        vector <int> final;
+        for (int i=0;i<b.size();i++){
+            final.push_back(b[i]);
+        }
+        int j=0;
+        for (int i=0;i<f.size();i++){
+            final.push_back(f[i]);
+        }
+        int h=0;
+       
+        for (int i=0;i<nums.size();i++){
+            if (nums[i]>=0){
+                nums[i]=final[h++];
+            }
+        }
+        return nums;
+        
+    }
+};
