@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int minimumPrefixLength(vector<int>& nums) {
+        int l=-1;
+        for (int i=0;i<nums.size()-1;i++){
+            if (nums[i]>=nums[i+1]){
+                l=i;
+            }
+        }
+        if (l==-1){
+            return 0;
+        }
+        return l+1;
+    }
+};
