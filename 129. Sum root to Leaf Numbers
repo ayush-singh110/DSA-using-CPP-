@@ -1,0 +1,21 @@
+class Solution {
+private:
+    void preorder(TreeNode *root,int &sum,string s){
+        if (root==NULL){
+            return;
+        }
+        s=s+to_string(root->val);
+        if (root->left==NULL && root->right==NULL){
+            sum=sum+stoi(s);
+            return;
+        }
+        preorder(root->left,sum,s);
+        preorder(root->right,sum,s);
+    }
+public:
+    int sumNumbers(TreeNode* root) {
+        int sum=0;
+        preorder(root,sum,"");
+        return sum;
+    }
+};
