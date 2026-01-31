@@ -1,0 +1,27 @@
+class Solution {
+private:
+    void ps(TreeNode *root,int csum,vector <int> &ds,vector <vector <int>> &ans,int targetSum){
+        if (root==NULL){
+            return;
+        }
+        csum=csum+root->val;
+        ds.push_back(root->val);
+        if (root->left==NULL && root->right==NULL && csum==targetSum){
+            ans.push_back(ds);
+        }
+        ps(root->left,csum,ds,ans,targetSum);
+        ps(root->right,csum,ds,ans,targetSum);
+        ds.pop_back();
+    }
+public:
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        if (root==NULL){
+            return {};
+        }
+        vector <int> ds;
+        vector <vector <int>> ans;
+        ps(root,0,ds,ans,targetSum);
+        return ans;
+        
+    }
+};
