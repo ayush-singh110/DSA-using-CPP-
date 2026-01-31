@@ -1,0 +1,24 @@
+class Solution {
+private:
+    void cs(int i,int n,vector <int> &ds,vector <vector <int>> &ans,int k){
+        if (ds.size()==k){
+            if (n==0){
+                ans.push_back(ds);
+            }
+            return;
+        }
+        if (i<10){
+        ds.push_back(i);
+        cs(i+1,n-i,ds,ans,k);
+        ds.pop_back();
+        cs(i+1,n,ds,ans,k);
+        }
+    }
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector <int> ds;
+        vector <vector <int>> ans;
+        cs(1,n,ds,ans,k);
+        return ans;
+    }
+};
