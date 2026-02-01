@@ -1,0 +1,23 @@
+class Solution {
+private:
+    string co(int n){
+        string a="";
+        while (n!=0){
+            a=a+to_string(n%2);
+            n=n/2;
+        }
+        reverse(a.begin(),a.end());
+        return a;
+    }
+public:
+    int hammingWeight(int n) {
+        string s=co(n);
+        int count=0;
+        for (auto it:s){
+            if (it=='1'){
+                count++;
+            }
+        }
+        return count;
+    }
+};
