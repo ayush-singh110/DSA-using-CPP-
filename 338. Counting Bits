@@ -1,0 +1,30 @@
+class Solution {
+private:
+    string c(int n){
+        string a="";
+        while (n!=0){
+            a=a+to_string(n%2);
+            n=n/2;
+        }
+        reverse(a.begin(),a.end());
+        return a;
+    }
+public:
+    vector<int> countBits(int n) {
+        vector <int> r(n+1,0);
+        for (int i=0;i<r.size();i++){
+            if (i==0){
+                continue;
+            }
+            string s=c(i);
+            int count=0;
+            for (auto it:s){
+                if (it=='1'){
+                    count++;
+                }
+            }
+            r[i]=count;
+        }
+        return r;
+    }
+};
