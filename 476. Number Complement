@@ -1,0 +1,38 @@
+class Solution {
+private:
+    string c(int n){
+        string a="";
+        while (n!=0){
+            a=a+to_string(n%2);
+            n=n/2;
+        }
+        reverse(a.begin(),a.end());
+        return a;
+    }
+public:
+    int findComplement(int num) {
+        string s=c(num);
+        for (int i=0;i<s.size();i++){
+            if (s[i]=='1'){
+                s[i]='0';
+            }
+            else if (s[i]=='0'){
+                s[i]='1';
+            }
+        }
+        for (auto it:s){
+            cout<<it;
+        }
+        int sum=0;
+        reverse(s.begin(),s.end());
+        for (int i=0;i<s.size();i++){
+            if (s[i]=='0'){
+                continue;
+            }
+            else if (s[i]=='1'){
+                sum=sum+(pow(2,i));
+            }
+        }
+        return sum;
+    }
+};
