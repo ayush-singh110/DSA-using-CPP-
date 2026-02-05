@@ -1,0 +1,36 @@
+class Solution {
+private:
+    int c(int n){
+        int count=0;
+        if (n==0){
+            return 0;
+        }
+        else {
+            while (n!=0){
+                if ((n&1)==1){
+                    count++;
+                }
+                n=n>>1;
+            }
+        }
+        return count;
+    }
+public:
+    vector<int> sortByBits(vector<int>& arr) {
+        vector <pair<int,int>> r;
+        for (int i=0;i<arr.size();i++){
+            int s=c(arr[i]);
+            r.push_back({arr[i],s});
+        }
+        sort(r.begin(),r.end(),[](const pair <int,int> &a,const pair<int,int> &b){
+            if (a.second==b.second){
+                return a.first<b.first;
+            }
+            return a.second<b.second;
+        });
+        vector <int> result;
+        for (int i=0;i<r.size();i++){
+            result.push_back(r[i].first);
+        }
+        return result;
+    }
