@@ -1,0 +1,23 @@
+class Solution {
+    int house (vector <int> &nums, vector <int> &dp, int ind){
+        if (ind==0){
+            return nums[0];
+        }
+        if (ind<0){
+            return 0;
+        }
+        if (dp[ind]!=-1){
+            return dp[ind];
+        }
+        int pick=nums[ind]+house(nums,dp,ind-2);
+        int npick=house(nums,dp,ind-1);
+        dp[ind]=max(pick,npick);
+        return max(pick,npick);
+    }
+public:
+    int rob(vector<int>& nums) {
+        vector <int> dp(nums.size()+1,-1);
+        int result=house(nums,dp,nums.size()-1);
+        return result;
+    }
+};
