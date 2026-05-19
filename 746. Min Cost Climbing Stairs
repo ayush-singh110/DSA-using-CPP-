@@ -1,0 +1,28 @@
+class Solution {
+    int stairs (vector <int> &cost,vector <int> &dp,int ind){
+        if (ind==0){
+            return 0;
+        }
+        if (dp[ind]!=-1){
+            return dp[ind];
+        }
+        int left=stairs(cost,dp,ind-1)+cost[ind-1];
+        int right;
+        if (ind<=1){
+            right=0;
+        }
+        else{
+            right=stairs(cost,dp,ind-2)+cost[ind-2];
+        }
+        dp[ind]=min(left,right);
+        return min(left,right);
+
+    }
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        cost.push_back(0);
+        vector <int> dp(cost.size()+1,-1);
+        int result=stairs(cost,dp,cost.size()-1);
+        return result;
+    }
+};
