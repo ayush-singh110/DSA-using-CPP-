@@ -1,0 +1,44 @@
+class Solution {
+    int house1(vector <int> &nums,vector <int> &dp1, int ind){
+        if (ind==0){
+            return nums[0];
+        }
+        if (ind<0){
+            return 0;
+        }
+        if (dp1[ind]!=-1){
+            return dp1[ind];
+        }
+        int pick=nums[ind]+house1(nums,dp1,ind-2);
+        int npick=house1(nums,dp1,ind-1);
+        dp1[ind]=max(pick,npick);
+        return max(pick,npick);
+    }
+    int house2(vector <int> &nums,vector <int> &dp2,int ind){
+        if (ind==1){
+            return nums[1];
+        }
+        if (ind<1){
+            return 0;
+        }
+        if (dp2[ind]!=-1){
+            return dp2[ind];
+        }
+        int pick=nums[ind]+house2(nums,dp2,ind-2);
+        int npick=house2(nums,dp2,ind-1);
+        dp2[ind]=max(pick,npick);
+        return max(pick,npick);
+    }
+
+public:
+    int rob(vector<int>& nums) {
+        if (nums.size()==1){
+            return nums[0];
+        }
+        vector <int> dp1(nums.size(),-1);
+        int result1=house1(nums,dp1,nums.size()-2);
+        vector <int> dp2(nums.size(),-1);
+        int result2=house2(nums,dp2,nums.size()-1);
+        return max(result1,result2);
+    }
+};
