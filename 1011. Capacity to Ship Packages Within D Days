@@ -1,0 +1,38 @@
+class Solution {
+    bool check (vector <int> &weights,long long mid,int days){
+        int cdays=1;
+        long long sum=0;
+        for (int i=0;i<weights.size();i++){
+            if (sum+weights[i]<=mid){
+                sum=sum+weights[i];
+            }
+            else{
+                cdays++;
+                sum=weights[i];
+            }
+        }
+        return cdays<=days;
+    }
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        int maxi=INT_MIN;
+        for (int i=0;i<weights.size();i++){
+            maxi=max(maxi,weights[i]);
+        }
+        int start=maxi;
+        int end=1e9;
+        int result=maxi;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            if (check(weights,mid,days)==true){
+                result=mid;
+                end=mid-1;
+            }
+            else{
+                start=mid+1;;
+            }
+        }
+        return result;
+
+    }
+};
