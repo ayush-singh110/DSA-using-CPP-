@@ -1,0 +1,33 @@
+class Solution {
+    bool p(vector <int> &nums,int k,int mid){
+        int count=1;
+        int sum=0;
+        for (int i=nums.size()-1;i>=0;i--){
+            if (sum+nums[i]<=mid){
+                sum=sum+nums[i];
+            }
+            else{
+                count++;
+                sum=nums[i];
+            }
+        }
+        return count<=k;
+    }
+public:
+    int splitArray(vector<int>& nums, int k) {
+        int start=*max_element(nums.begin(),nums.end());
+        int end=accumulate(nums.begin(),nums.end(),0);
+        int result=end;
+        while (start<=end){
+            int mid=start+(end-start)/2;
+            if (p(nums,k,mid)==true){
+                result=mid;
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
+        }
+        return result;
+    }
+};
