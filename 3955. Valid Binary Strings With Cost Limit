@@ -1,0 +1,31 @@
+class Solution {
+    void generate(int n,int k,int ind,string s,vector <string> &result){
+        if (ind==n){
+            int count=0;
+            for (int i=0;i<n;i++){
+                if (s[i]=='1'){
+                    count=count+i;
+                }
+                if (i+1<n && s[i]=='1' && s[i+1]=='1'){
+                    return;
+                }
+            }
+            if (count<=k){
+                result.push_back(s);
+            }
+            return;
+        }
+        s=s+"0";
+        generate(n,k,ind+1,s,result);
+        s.pop_back();
+        s=s+"1";
+        generate(n,k,ind+1,s,result);
+        s.pop_back();
+    }
+public:
+    vector<string> generateValidStrings(int n, int k) {
+        vector <string> result;
+        generate(n,k,0,"",result);
+        return result;
+    }
+};
