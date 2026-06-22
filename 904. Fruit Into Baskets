@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        unordered_map <int,int> m;
+        int right=0;
+        int left=0;
+        int count=1;
+        while (right<fruits.size()){
+            m[fruits[right]]++;
+            while (m.size()>2 && left<=right){
+                m[fruits[left]]--;
+                if (m[fruits[left]]==0){
+                    m.erase(fruits[left]);
+                }
+                left++;
+            }
+            count=max(count,right-left+1);
+            right++;
+        }
+        return count;
+    }
+};
