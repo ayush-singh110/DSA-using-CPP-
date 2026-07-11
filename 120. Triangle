@@ -1,0 +1,19 @@
+class Solution {
+    int total(vector <vector <int>> &triangle,vector <vector <int>> &dp,int m,int n){
+        if (m==triangle.size()-1){
+            return triangle[m][n];
+        }
+        if (dp[m][n]!=1e5){
+            return dp[m][n];
+        }
+        int down_curr=triangle[m][n]+total(triangle,dp,m+1,n);
+        int down_nxt=triangle[m][n]+total(triangle,dp,m+1,n+1);
+        return dp[m][n]=min(down_curr,down_nxt);
+
+    }
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        vector <vector <int>> dp(triangle.size(),vector <int> (triangle[triangle.size()-1].size(),1e5));
+        return total(triangle,dp,0,0);
+    }
+};
