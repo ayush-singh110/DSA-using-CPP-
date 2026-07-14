@@ -1,0 +1,82 @@
+class Solution {
+    long long submin(vector <int> &nums){
+        vector <int> nse(nums.size(),0);
+        stack <int> snse;
+        for (int i=nums.size()-1;i>=0;i--){
+            while (!snse.empty() && nums[i]<=nums[snse.top()]){
+                snse.pop();
+            }
+            if (snse.empty()){
+                nse[i]=nums.size();
+            }
+            else{
+                nse[i]=snse.top();
+            }
+            snse.push(i);
+        }
+        vector <int> pse(nums.size(),0);
+        stack <int> spse;
+        for (int i=0;i<nums.size();i++){
+            while (!spse.empty() && nums[i]<nums[spse.top()]){
+                spse.pop();
+            }
+            if (spse.empty()){
+                pse[i]=-1;
+            }
+            else {
+                pse[i]=spse.top();
+            }
+            spse.push(i);
+        }
+        long long result=0;
+        for (int i=0;i<nums.size();i++){
+            int left=i-pse[i];
+            int right=nse[i]-i;
+            result=result+(1LL*left*right*nums[i]);
+        }
+        return result;
+    }
+    long long submax(vector <int> &nums){
+        vector <int> nge(nums.size(),0);
+        stack <int> snge;
+        for (int i=nums.size()-1;i>=0;i--){
+            while (!snge.empty() && nums[i]>=nums[snge.top()]){
+                snge.pop();
+            }
+            if (snge.empty()){
+                nge[i]=nums.size();
+            }
+            else{
+                nge[i]=snge.top();
+            }
+            snge.push(i);
+        }
+        vector <int> pge(nums.size(),0);
+        stack <int> spge;
+        for (int i=0;i<nums.size();i++){
+            while (!spge.empty() && nums[i]>nums[spge.top()]){
+                spge.pop();
+            }
+            if (spge.empty()){
+                pge[i]=-1;
+            }
+            else{
+                pge[i]=spge.top();
+            }
+            spge.push(i);
+        }
+        long long result=0;
+        for (int i=0;i<nums.size();i++){
+            int left=i-pge[i];
+            int right=nge[i]-i;
+            result=result+(1LL*left*right*nums[i]);
+        }
+        return result;
+    }
+public:
+    long long subArrayRanges(vector<int>& nums) {
+        long long smallest=submin(nums);
+        long long largest=submax(nums);
+        return largest-smallest;
+    }
+};
