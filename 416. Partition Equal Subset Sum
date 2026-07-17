@@ -1,0 +1,31 @@
+class Solution {
+    bool partition(vector <int> &nums,vector <vector <int>> &dp, int target,int ind){
+        if (target==0){
+            return true;
+        }
+        if (ind==0){
+            return nums[0]==target;
+        }
+        if (dp[ind][target]!=-1){
+            return dp[ind][target];
+        }
+        bool np=partition(nums,dp,target,ind-1);
+        bool p=false;
+        if (nums[ind]<=target){
+            p=partition(nums,dp,target-nums[ind],ind-1);
+        }
+        return dp[ind][target]=np||p;
+    }
+public:
+    bool canPartition(vector<int>& nums) {
+        int sum=0;
+        for (auto it:nums){
+            sum+=it;
+        }
+        if (sum%2!=0){
+            return false;
+        }
+        vector <vector <int>> dp(nums.size(),vector <int> (sum/2+1,-1));
+        return partition(nums,dp,sum/2,nums.size()-1);
+    }
+};
