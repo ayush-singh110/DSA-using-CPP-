@@ -1,0 +1,33 @@
+class Solution {
+    void dfs(int node,int target,vector <int> &vis,vector <int> adj[],vector <int> &r,vector <vector <int>> &result){
+        vis[node]=1;
+        r.push_back(node);
+        if (node==target){
+            result.push_back(r);
+            r.pop_back();
+            vis[node]=-1;
+            return;
+        }
+        for (auto it:adj[node]){
+            if (vis[it]==-1){
+                dfs(it,target,vis,adj,r,result);
+            }
+        }
+        vis[node]=-1;
+        r.pop_back();
+    }
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        vector <int> adj[graph.size()];
+        for (int i=0;i<graph.size();i++){
+            for (int j=0;j<graph[i].size();j++){
+                adj[i].push_back(graph[i][j]);
+            }
+        }
+        vector <int> vis(graph.size(),-1);
+        vector <int> r;
+        vector <vector <int>> result;
+        dfs(0,graph.size()-1,vis,adj,r,result);
+        return result;
+    }
+};
