@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map <char,int> m;
+        for (auto it:s){
+            m[it]++;
+        }
+        int l=0;
+        bool has_odd=false;
+        for (auto it:m){
+            if (it.second%2==0){
+                l=l+it.second;
+            }
+            else if (it.second%2==1){
+                has_odd=true;
+                if (it.second>1 && (it.second-1)%2==0){
+                    l=l+(it.second-1);
+                }
+            }
+        }
+        if (has_odd==true){
+            l++;
+        }
+        return l;
+    }
+};
