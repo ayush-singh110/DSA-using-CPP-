@@ -1,0 +1,23 @@
+class Solution {
+    int pf(vector <int> &prices,vector <vector <int>> &dp,int fee,int buy,int ind){
+        if (ind==prices.size()){
+            return 0;
+        }
+        if (dp[ind][buy]!=-1){
+            return dp[ind][buy];
+        }
+        long long prof;
+        if (buy){
+            prof=max(-prices[ind]+pf(prices,dp,fee,0,ind+1),0+pf(prices,dp,fee,1,ind+1));
+        }
+        else{
+            prof=max(prices[ind]-fee+pf(prices,dp,fee,1,ind+1),0+pf(prices,dp,fee,0,ind+1));
+        }
+        return dp[ind][buy]=prof;
+    }
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        vector <vector <int>> dp(prices.size(),vector <int> (2,-1));
+        return pf(prices,dp,fee,1,0);
+    }
+};
