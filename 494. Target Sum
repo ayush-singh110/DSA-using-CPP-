@@ -1,0 +1,28 @@
+class Solution {
+    int find(vector <int> &nums,vector <vector <int>> &dp,int target,int sum,int su,int ind){
+        if (ind<0){
+            if ((sum-su)-su==target){
+                return 1;
+            }
+            return 0;
+        }
+        if (dp[ind][su]!=-1){
+            return dp[ind][su];
+        }
+        su=su+nums[ind];
+        int take=find(nums,dp,target,sum,su,ind-1);
+        su=su-nums[ind];
+        int ntake=find(nums,dp,target,sum,su,ind-1);
+        return dp[ind][su]=take+ntake;
+    }
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int sum=0;
+        for (auto it:nums){
+            sum=sum+it;
+        }
+        vector <vector <int>> dp(nums.size(),vector <int> (sum+1,-1));
+        int su=0;
+        return find(nums,dp,target,sum,su,nums.size()-1);
+    }
+};
